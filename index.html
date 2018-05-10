@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/index.css">
+	
+	<script src="https://cdn.bootcss.com/systemjs/0.21.0/system-production.js"></script>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<script src="index.js"></script>
+	<!-- <script type="text/javascript" src="compile/PraiseButton.js"></script> -->
+	<!-- <script type="text/javascript" src="compile/index.js"></script> -->
+</head>
+<body>
+	<span>当前点赞次数：<span id="clickNum">0</span></span>
+	<div id="resultId" class="hide">+1</div>
+	<div id="container">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+		<div class="four"></div>
+		<div class="five"></div>
+		<div class="bottom"></div>
+		<div class="right"></div>
+		<div class="rightTop"></div>
+		<div class="leftTop"></div>
+	</div>
+	<script>
+
+			SystemJS.import('./compile/PraiseButton.js').then(function(m) {
+				$.extend({
+					thumb:m.default.Thumb
+				});
+				callBack();
+			});
+			function callBack(){
+				var f = new $.thumb(0,$('#container'));
+				f.praiseAddOne();
+			}
+
+  	</script>
+</body>
+</html>
+
+
+
+
